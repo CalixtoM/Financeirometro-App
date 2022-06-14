@@ -1,7 +1,8 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function Balance( {saldo, gastos} ) {
+    const [showValue, setShowValue] = useState(false)
  return (
     <View style={styles.container}>
         
@@ -9,7 +10,10 @@ export default function Balance( {saldo, gastos} ) {
             <Text style={styles.itemTitle}>Saldo</Text>
             <View style={styles.content}>
                 <Text style={styles.currencySymbol}>R$</Text>
-                <Text style={styles.balance}>{ saldo }</Text>
+                <TouchableOpacity onPress={ () => setShowValue(!showValue)} >
+                    
+                    { showValue ? ( <Text style={styles.balance}> { saldo } </Text> ) : (<View style={styles.skeleton}></View>)}
+                </TouchableOpacity>
             </View>
         </View>
 
@@ -17,7 +21,10 @@ export default function Balance( {saldo, gastos} ) {
             <Text style={styles.itemTitle}>Gastos</Text>
             <View style={styles.content}>
                 <Text style={styles.currencySymbol}>R$</Text>
-                <Text style={styles.gastos}>{ gastos }</Text>
+                <TouchableOpacity onPress={ () => setShowValue(!showValue)} >
+                    
+                    { showValue ? (<Text style={styles.gastos}>{ gastos }</Text> ) : (<View style={styles.skeleton}></View>)}
+                </TouchableOpacity>
             </View>
         </View>
 
@@ -60,5 +67,12 @@ const styles = StyleSheet.create({
     gastos:{
         fontSize: 22,
         color: '#e74c2c'
-    }
+    },
+    skeleton:{
+        marginTop: 6,
+        width: 80,
+        height: 10,
+        backgroundColor: '#DADADA',
+        borderRadius: 8
+      }
 })

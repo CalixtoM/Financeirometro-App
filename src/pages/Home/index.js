@@ -7,23 +7,23 @@ import Actions from '../../components/Actions';
 
 const list = [{
   id: 1,
-  label: 'Boleto Internet',
-  value: '305,00',
-  date: '12/06/2022',
+  label: 'Disney Plus',
+  value: '27,90',
+  date: '01/06/2022',
   type: 0
 },
 {
   id: 2,
   label: 'Salário',
   value: '2.900,00',
-  date: '05/06/2022',
+  date: '29/05/2022',
   type: 1
 },
 {
   id: 3,
-  label: 'Rendimentos',
-  value: '934,00',
-  date: '09/06/2022',
+  label: 'Aposta Santastico',
+  value: '200,00',
+  date: '18/05/2022',
   type: 1
 }
 ]
@@ -33,7 +33,7 @@ export default function Home() {
     <View style={styles.container}>
       <Header name="Matheus Calixto" />
       
-      <Balance saldo="9.550,00" gastos="489,00"/>
+      <Balance saldo="3.072,10" gastos="27,90"/>
       
       <Actions />
 
